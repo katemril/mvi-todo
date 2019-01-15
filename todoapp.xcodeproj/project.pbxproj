@@ -8,20 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		A20312B821DEC22C009DB7BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312B721DEC22C009DB7BF /* AppDelegate.swift */; };
-		A20312BA21DEC22C009DB7BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312B921DEC22C009DB7BF /* ViewController.swift */; };
-		A20312BD21DEC22C009DB7BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20312BB21DEC22C009DB7BF /* Main.storyboard */; };
+		A20312BA21DEC22C009DB7BF /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312B921DEC22C009DB7BF /* NotesViewController.swift */; };
 		A20312BF21DEC22F009DB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20312BE21DEC22F009DB7BF /* Assets.xcassets */; };
 		A20312C221DEC22F009DB7BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20312C021DEC22F009DB7BF /* LaunchScreen.storyboard */; };
+		A20312CA21DECF23009DB7BF /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312C921DECF23009DB7BF /* AddNoteViewController.swift */; };
+		A20312CC21E40F88009DB7BF /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312CB21E40F88009DB7BF /* NoteModel.swift */; };
+		A20312CE21E40FD8009DB7BF /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312CD21E40FD8009DB7BF /* NoteViewModel.swift */; };
+		A20312D021E52A38009DB7BF /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312CF21E52A38009DB7BF /* State.swift */; };
+		A20312D421E5608A009DB7BF /* AddNoteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312D321E56089009DB7BF /* AddNoteState.swift */; };
+		A20312D621E562AA009DB7BF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312D521E562AA009DB7BF /* Store.swift */; };
+		A20312D821E5648F009DB7BF /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312D721E5648F009DB7BF /* AddNoteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A20312B421DEC22C009DB7BF /* todoapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todoapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20312B721DEC22C009DB7BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A20312B921DEC22C009DB7BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A20312BC21DEC22C009DB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A20312B921DEC22C009DB7BF /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		A20312BE21DEC22F009DB7BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A20312C121DEC22F009DB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A20312C321DEC22F009DB7BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A20312C921DECF23009DB7BF /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		A20312CB21E40F88009DB7BF /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		A20312CD21E40FD8009DB7BF /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
+		A20312CF21E52A38009DB7BF /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		A20312D321E56089009DB7BF /* AddNoteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteState.swift; sourceTree = "<group>"; };
+		A20312D521E562AA009DB7BF /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		A20312D721E5648F009DB7BF /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				A20312B621DEC22C009DB7BF /* todoapp */,
-				A20312B521DEC22C009DB7BF /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,19 +60,43 @@
 				A20312B421DEC22C009DB7BF /* todoapp.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A20312B621DEC22C009DB7BF /* todoapp */ = {
 			isa = PBXGroup;
 			children = (
 				A20312B721DEC22C009DB7BF /* AppDelegate.swift */,
-				A20312B921DEC22C009DB7BF /* ViewController.swift */,
-				A20312BB21DEC22C009DB7BF /* Main.storyboard */,
+				A20312D521E562AA009DB7BF /* Store.swift */,
+				A20312D121E55FC2009DB7BF /* notes */,
+				A20312D221E5604B009DB7BF /* addNote */,
+				A20312B521DEC22C009DB7BF /* Products */,
 				A20312BE21DEC22F009DB7BF /* Assets.xcassets */,
 				A20312C021DEC22F009DB7BF /* LaunchScreen.storyboard */,
 				A20312C321DEC22F009DB7BF /* Info.plist */,
 			);
 			path = todoapp;
+			sourceTree = "<group>";
+		};
+		A20312D121E55FC2009DB7BF /* notes */ = {
+			isa = PBXGroup;
+			children = (
+				A20312B921DEC22C009DB7BF /* NotesViewController.swift */,
+				A20312CF21E52A38009DB7BF /* State.swift */,
+				A20312CD21E40FD8009DB7BF /* NoteViewModel.swift */,
+				A20312CB21E40F88009DB7BF /* NoteModel.swift */,
+			);
+			path = notes;
+			sourceTree = "<group>";
+		};
+		A20312D221E5604B009DB7BF /* addNote */ = {
+			isa = PBXGroup;
+			children = (
+				A20312C921DECF23009DB7BF /* AddNoteViewController.swift */,
+				A20312D321E56089009DB7BF /* AddNoteState.swift */,
+				A20312D721E5648F009DB7BF /* AddNoteViewModel.swift */,
+			);
+			path = addNote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +159,6 @@
 			files = (
 				A20312C221DEC22F009DB7BF /* LaunchScreen.storyboard in Resources */,
 				A20312BF21DEC22F009DB7BF /* Assets.xcassets in Resources */,
-				A20312BD21DEC22C009DB7BF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +169,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A20312BA21DEC22C009DB7BF /* ViewController.swift in Sources */,
+				A20312CE21E40FD8009DB7BF /* NoteViewModel.swift in Sources */,
+				A20312BA21DEC22C009DB7BF /* NotesViewController.swift in Sources */,
+				A20312CC21E40F88009DB7BF /* NoteModel.swift in Sources */,
+				A20312D821E5648F009DB7BF /* AddNoteViewModel.swift in Sources */,
+				A20312D621E562AA009DB7BF /* Store.swift in Sources */,
+				A20312CA21DECF23009DB7BF /* AddNoteViewController.swift in Sources */,
 				A20312B821DEC22C009DB7BF /* AppDelegate.swift in Sources */,
+				A20312D421E5608A009DB7BF /* AddNoteState.swift in Sources */,
+				A20312D021E52A38009DB7BF /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A20312BB21DEC22C009DB7BF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A20312BC21DEC22C009DB7BF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A20312C021DEC22F009DB7BF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
