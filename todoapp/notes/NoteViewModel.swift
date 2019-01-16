@@ -23,7 +23,7 @@ enum Change {
 }
 
 protocol NoteViewModelDelegate: class {
-    func renderState(old: State)
+    func renderState(new: State)
 }
 
 
@@ -38,7 +38,7 @@ class NoteViewModel {
     
     var state: State = State() {
         didSet {
-            update(old: oldValue)
+            update(new: state) 
         }
     }
     
@@ -48,8 +48,8 @@ class NoteViewModel {
     }
     
     // Binding
-    private func update(old: State) {
-        delegate?.renderState(old: old)
+    private func update(new: State) {
+        delegate?.renderState(new: new)
     }
     
     // Bind actions: action to change
@@ -57,9 +57,10 @@ class NoteViewModel {
         guard let command = state.send(message) else { return }
         
         switch command {
-        case let .loadData(message: _):
-            let change = loadNotes()
-            reducer(message: message, change: change)
+        case .loadData(message: _):
+            loadNotes { (change) in
+                self.reducer(message: message, change: change)
+            }
         }
     }
     
@@ -68,20 +69,20 @@ class NoteViewModel {
     func reducer(message: State.Message, change: Change) {
         switch change {
         case .loading:
-            print("")
+            _ = state.send(.loading)
         case .error:
-            print("")
+            print("error")
         case .notes(let notes):
             _ = state.send(.dataReceived(notes))
         }
     }
     
-    func loadNotes() -> Change {
-        let notes = store.fetchNotes()
-        if notes.isEmpty {
-            return .error
-        } else {
-            return .notes(notes)
+    func loadNotes(completion: @escaping (_ change: Change) -> Void) {
+        completion(.loading)
+        store.fetchNotes(success: { (allNotes) in
+            completion(.notes(allNotes))
+        }) { (error) in
+            completion(.error)
         }
     }
     

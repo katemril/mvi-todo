@@ -16,8 +16,13 @@ extension NotesViewController: NoteViewModelDelegate {
      place: view controller
      question: is state - old or new? - i think its new
      */
-    internal func renderState(old: State) { // -> introduce a similar code in the View Model which would trigger update
-        tableView.reloadData()
+    internal func renderState(new: State) {
+        if new.isLoading {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+            tableView.reloadData()
+        }
     }
 }
 
@@ -26,6 +31,7 @@ class NotesViewController: UIViewController {
     private var viewModel: NoteViewModel
     lazy var searchController: UISearchController = self.todoSearchController()
     let tableView = UITableView()
+    let activityIndicator = UIActivityIndicatorView(style: .gray)
     
     override init(nibName: String?, bundle: Bundle?) {
         self.viewModel = NoteViewModel(noteModel: NoteModel(note: ""))
@@ -43,6 +49,7 @@ class NotesViewController: UIViewController {
     
     public override func loadView() {
         view = tableView
+        setupActivityIndicator()
     }
 
     override func viewDidLoad() {
@@ -108,6 +115,13 @@ extension NotesViewController {
         )
         
         setupSearchController()
+    }
+    
+    private func setupActivityIndicator() {
+        tableView.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: tableView.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: tableView.centerYAnchor).isActive = true
     }
     
     private func setupSearchController () {

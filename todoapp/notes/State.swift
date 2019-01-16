@@ -18,8 +18,10 @@
 // a version of a reduce that reduces a model action/ a view action into a state
 struct State {
     private var notes: [NoteModel] = []
+    private var _isLoading = false
     
     enum Message {
+        case loading
         case dataReceived([NoteModel])
         case reload
     }
@@ -35,11 +37,19 @@ struct State {
            return .loadData(message: Message.dataReceived)
         case .dataReceived(let allNotes):
             notes = allNotes
+            _isLoading = false
+            return nil
+        case .loading:
+            _isLoading = true
             return nil
         }
     }
     
     var allNotes: [NoteModel] {
         return notes
+    }
+    
+    var isLoading: Bool {
+        return _isLoading
     }
 }

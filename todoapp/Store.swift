@@ -13,11 +13,14 @@ final class Store {
     private var notes: [NoteModel] = []
     static let shared = Store()
     
-    func fetchNotes() -> [NoteModel] {
-        return notes
+    func fetchNotes(success: @escaping (_ posts: [NoteModel]) -> Void, failure: @escaping (_ error: Error?) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            success(self.notes)
+        }
     }
     
     func add(note: NoteModel) {
         notes.append(note)
     }
+
 }
