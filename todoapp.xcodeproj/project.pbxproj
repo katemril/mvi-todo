@@ -18,6 +18,10 @@
 		A20312D421E5608A009DB7BF /* AddNoteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312D321E56089009DB7BF /* AddNoteState.swift */; };
 		A20312D621E562AA009DB7BF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312D521E562AA009DB7BF /* Store.swift */; };
 		A20312D821E5648F009DB7BF /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312D721E5648F009DB7BF /* AddNoteViewModel.swift */; };
+		A20312DA21F25303009DB7BF /* AddNoteChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312D921F25303009DB7BF /* AddNoteChange.swift */; };
+		A20312DC21F25402009DB7BF /* AddNoteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312DB21F25402009DB7BF /* AddNoteAction.swift */; };
+		A20312DE21F2642E009DB7BF /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312DD21F2642E009DB7BF /* LoadingIndicatorView.swift */; };
+		A20312E121F27FE3009DB7BF /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20312E021F27FE3009DB7BF /* EditNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		A20312D321E56089009DB7BF /* AddNoteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteState.swift; sourceTree = "<group>"; };
 		A20312D521E562AA009DB7BF /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		A20312D721E5648F009DB7BF /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
+		A20312D921F25303009DB7BF /* AddNoteChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteChange.swift; sourceTree = "<group>"; };
+		A20312DB21F25402009DB7BF /* AddNoteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteAction.swift; sourceTree = "<group>"; };
+		A20312DD21F2642E009DB7BF /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
+		A20312E021F27FE3009DB7BF /* EditNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +76,10 @@
 			children = (
 				A20312B721DEC22C009DB7BF /* AppDelegate.swift */,
 				A20312D521E562AA009DB7BF /* Store.swift */,
+				A20312DD21F2642E009DB7BF /* LoadingIndicatorView.swift */,
 				A20312D121E55FC2009DB7BF /* notes */,
 				A20312D221E5604B009DB7BF /* addNote */,
+				A20312DF21F27F91009DB7BF /* editNote */,
 				A20312B521DEC22C009DB7BF /* Products */,
 				A20312BE21DEC22F009DB7BF /* Assets.xcassets */,
 				A20312C021DEC22F009DB7BF /* LaunchScreen.storyboard */,
@@ -95,8 +105,18 @@
 				A20312C921DECF23009DB7BF /* AddNoteViewController.swift */,
 				A20312D321E56089009DB7BF /* AddNoteState.swift */,
 				A20312D721E5648F009DB7BF /* AddNoteViewModel.swift */,
+				A20312D921F25303009DB7BF /* AddNoteChange.swift */,
+				A20312DB21F25402009DB7BF /* AddNoteAction.swift */,
 			);
 			path = addNote;
+			sourceTree = "<group>";
+		};
+		A20312DF21F27F91009DB7BF /* editNote */ = {
+			isa = PBXGroup;
+			children = (
+				A20312E021F27FE3009DB7BF /* EditNoteViewController.swift */,
+			);
+			path = editNote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,13 +189,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A20312E121F27FE3009DB7BF /* EditNoteViewController.swift in Sources */,
 				A20312CE21E40FD8009DB7BF /* NoteViewModel.swift in Sources */,
+				A20312DA21F25303009DB7BF /* AddNoteChange.swift in Sources */,
 				A20312BA21DEC22C009DB7BF /* NotesViewController.swift in Sources */,
+				A20312DE21F2642E009DB7BF /* LoadingIndicatorView.swift in Sources */,
 				A20312CC21E40F88009DB7BF /* NoteModel.swift in Sources */,
 				A20312D821E5648F009DB7BF /* AddNoteViewModel.swift in Sources */,
 				A20312D621E562AA009DB7BF /* Store.swift in Sources */,
 				A20312CA21DECF23009DB7BF /* AddNoteViewController.swift in Sources */,
 				A20312B821DEC22C009DB7BF /* AppDelegate.swift in Sources */,
+				A20312DC21F25402009DB7BF /* AddNoteAction.swift in Sources */,
 				A20312D421E5608A009DB7BF /* AddNoteState.swift in Sources */,
 				A20312D021E52A38009DB7BF /* State.swift in Sources */,
 			);

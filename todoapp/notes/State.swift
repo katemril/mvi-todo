@@ -6,16 +6,8 @@
 //  Copyright © 2019 weightwatchers. All rights reserved.
 //
 
-/*
- ata class State(val notes: List<ViewNote> = listOf(),
- @Transient val isIdle: Boolean = false,
- @Transient val isLoading: Boolean = false,
- @Transient val isError: Boolean = false) : BaseState, Parcelable
-
- */
-
 // State is a data structure
-// a version of a reduce that reduces a model action/ a view action into a state
+// a version of a reducer that reduces a model action/ a view action into a state
 struct State {
     private var notes: [NoteModel] = []
     private var _isLoading = false

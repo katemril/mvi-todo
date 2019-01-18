@@ -8,10 +8,36 @@
 
 import UIKit
 
+extension AddNoteViewController: AddNoteViewModelDelegate {
+    
+    func renderState(new: AddNoteState) {
+        if new.isValidating { } // no-op
+        
+        if new.isValidationError {
+            LoadingIndicatorView.show(view, loadingText: "A note should be at least 3 characters long")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                LoadingIndicatorView.hide()
+            }
+        }
+        
+        if new.isError {
+            LoadingIndicatorView.show(view, loadingText: "Error adding a note")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                LoadingIndicatorView.hide()
+            }
+        }
+        
+        if new.isNoteAdded {
+            navigationController?.popViewController(animated: true)
+        }
+    }
+}
+
 class AddNoteViewController: UIViewController {
     
     private var viewModel: AddNoteViewModel
     let textView = UITextView()
+    var overlay: UIView?
     
     override init(nibName: String?, bundle: Bundle?) {
         self.viewModel = AddNoteViewModel(noteModel: NoteModel(note: ""))
@@ -33,6 +59,8 @@ class AddNoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.delegate = self
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Save",
             style: .plain,
@@ -43,9 +71,7 @@ class AddNoteViewController: UIViewController {
     
     @objc func save(barButton: UIBarButtonItem) {
         let model = NoteModel(note: textView.text)
-        viewModel.addNote(note: model)
-        
-        navigationController?.popViewController(animated: true)
+        viewModel.performAction(action: .addNote(note: model))
     }
     
 }

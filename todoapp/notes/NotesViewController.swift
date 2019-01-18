@@ -10,13 +10,7 @@ import UIKit
 
 extension NotesViewController: NoteViewModelDelegate {
     
-    /*
-     ex. android:
-     func signature: private fun renderState(state: State)
-     place: view controller
-     question: is state - old or new? - i think its new
-     */
-    internal func renderState(new: State) {
+    func renderState(new: State) {
         if new.isLoading {
             activityIndicator.startAnimating()
         } else {
@@ -76,6 +70,20 @@ extension NotesViewController: UITableViewDataSource {
         let cell = UITableViewCell()
         cell.textLabel?.text = viewModel.state.allNotes[indexPath.row].note
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
+            
+        }
+        edit.backgroundColor = .orange
+        
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            
+        }
+        delete.backgroundColor = .blue
+        
+        return [edit, delete]
     }
     
 }

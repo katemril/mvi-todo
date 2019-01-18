@@ -8,13 +8,6 @@
 
 import Foundation
 
-/*
- sealed class Change {
-    object Loading : Change()
-    data class Notes(val notes: List<ViewNote>) : Change()
-    data class Error(val throwable: Throwable?) : Change()
-}
-*/
 // Note: a partial state. Transition between a backend state to front end state
 enum Change {
     case loading

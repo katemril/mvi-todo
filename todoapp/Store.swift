@@ -19,8 +19,11 @@ final class Store {
         }
     }
     
-    func add(note: NoteModel) {
-        notes.append(note)
+    func add(note: NoteModel, success: @escaping (_ success: NoteModel) -> Void, failure: @escaping (_ error: Error?) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.notes.append(note)
+            success(note)
+        }
     }
 
 }
